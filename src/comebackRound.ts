@@ -31,12 +31,5 @@ export function comebackRound(rounds: number[][]): number {
         }
     });
 
-    /*if (scores.filter(v => v === scores[leader]).length > 1) {
-        return -1;
-    }*/
-    if (headStartRound === -1) {
-        return -1;
-    }
-
-    return headStartRound + 1;
+    return headStartRound === -1 ? -1 : headStartRound + 1;
 }
