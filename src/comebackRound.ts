@@ -17,13 +17,11 @@ export function comebackRound(rounds: number[][]): number {
                 if (scores[scoreIdx] > roundMax) {
                     roundMax = scores[scoreIdx];
                     roundLeader = scoreIdx;
-                    console.log(`round max is now ${roundMax}, held by ${roundLeader}`);
                 }
             }
         });
         // check if there's a tie
         if (scores.filter(v => v === scores[roundLeader]).length > 1) {
-            console.log(`there was a tie in round ${roundIdx}`)
             leader = -1;
             headStartRound = -1;
         }
@@ -31,7 +29,6 @@ export function comebackRound(rounds: number[][]): number {
             leader = roundLeader;
             headStartRound = roundIdx;
         }
-        console.log(scores, roundLeader, headStartRound);
     });
 
     /*if (scores.filter(v => v === scores[leader]).length > 1) {
