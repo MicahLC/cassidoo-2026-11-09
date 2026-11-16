@@ -21,17 +21,25 @@ export function comebackRound(rounds: number[][]): number {
                 }
             }
         });
-        if (roundLeader != leader) {
+        // check if there's a tie
+        if (scores.filter(v => v === scores[roundLeader]).length > 1) {
+            console.log(`there was a tie in round ${roundIdx}`)
+            leader = -1;
+            headStartRound = -1;
+        }
+        else if (roundLeader != leader) {
             leader = roundLeader;
-            headStartRound = roundIdx; 
+            headStartRound = roundIdx;
         }
         console.log(scores, roundLeader, headStartRound);
     });
 
-    // check if there's a tie
-    if (scores.filter(v => v === scores[leader]).length > 1) {
+    /*if (scores.filter(v => v === scores[leader]).length > 1) {
+        return -1;
+    }*/
+    if (headStartRound === -1) {
         return -1;
     }
 
-    return headStartRound+1;
+    return headStartRound + 1;
 }

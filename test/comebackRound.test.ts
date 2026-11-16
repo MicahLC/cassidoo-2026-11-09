@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { comebackRound } from "../src/comebackRound.js";
 
 describe("comebackRound", () => {
-  it.only("handles email example #1", () => {
+  it("handles email example #1", () => {
     expect(comebackRound([
       [5, 3, 2],
       [0, 5, 2],
